@@ -471,21 +471,24 @@ function updateJoystickFromTouch(clientX, clientY) {
 }
 
 joystickArea.addEventListener("touchstart", (e) => {
+  e.preventDefault();
   const t = e.changedTouches[0];
   joystickState.active = true;
   joystickState.id = t.identifier;
   updateJoystickFromTouch(t.clientX, t.clientY);
-});
+}, { passive: false });
 
 joystickArea.addEventListener("touchmove", (e) => {
+  e.preventDefault();
   for (const t of e.changedTouches) {
     if (t.identifier === joystickState.id) {
       updateJoystickFromTouch(t.clientX, t.clientY);
     }
   }
-});
+}, { passive: false });
 
 joystickArea.addEventListener("touchend", (e) => {
+  e.preventDefault();
   for (const t of e.changedTouches) {
     if (t.identifier === joystickState.id) {
       joystickState.active = false;
@@ -495,15 +498,16 @@ joystickArea.addEventListener("touchend", (e) => {
       input.joystickVec.y = 0;
     }
   }
-});
+}, { passive: false });
 
-joystickArea.addEventListener("touchcancel", () => {
+joystickArea.addEventListener("touchcancel", (e) => {
+  e.preventDefault();
   joystickState.active = false;
   joystickState.id = null;
   joystickKnob.style.transform = "translate3d(0,0,0)";
   input.joystickVec.x = 0;
   input.joystickVec.y = 0;
-});
+}, { passive: false });
 
 btnEcho.addEventListener("click", () => {
   queueEchoInput();
