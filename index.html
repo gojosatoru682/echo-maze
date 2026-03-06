@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Echo Maze</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="app">
+      <div id="top-bar">
+        <div id="logo">Echo Maze</div>
+        <div id="hud">
+          <div class="hud-item">
+            <span class="label">Level</span>
+            <span id="hud-level" class="value">1</span>
+          </div>
+          <div class="hud-item">
+            <span class="label">Time</span>
+            <span id="hud-time" class="value">0.0</span>
+          </div>
+          <div class="hud-item cooldown-item">
+            <span class="label">Echo</span>
+            <div id="cooldown-bar">
+              <div id="cooldown-fill"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="game-container">
+        <canvas id="game-canvas"></canvas>
+
+        <div id="title-screen" class="overlay visible">
+          <div class="panel">
+            <h1>Echo Maze</h1>
+            <p>Navigate a dark maze using sound pulses.</p>
+            <div class="instructions">
+              <div>
+                <h2>Desktop</h2>
+                <p>Move with <strong>WASD</strong> or <strong>Arrow Keys</strong></p>
+                <p>Press <strong>Space</strong> to emit an echo</p>
+              </div>
+              <div>
+                <h2>Mobile</h2>
+                <p>Use the joystick to move</p>
+                <p>Tap the echo button to ping</p>
+              </div>
+            </div>
+            <button id="btn-play">Play</button>
+          </div>
+        </div>
+
+        <div id="game-over-screen" class="overlay">
+          <div class="panel">
+            <h1>Game Over</h1>
+            <p id="game-over-stats"></p>
+            <div class="buttons">
+              <button id="btn-retry">Retry</button>
+              <button id="btn-menu">Main Menu</button>
+            </div>
+          </div>
+        </div>
+
+        <div id="touch-controls">
+          <div id="joystick-area">
+            <div id="joystick-base">
+              <div id="joystick-knob"></div>
+            </div>
+          </div>
+          <button id="btn-echo">Echo</button>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="main.js"></script>
+  </body>
+  </html>
+

@@ -1,0 +1,12 @@
+{
+  "name": "echo-maze",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A minimalist exploration puzzle game where you navigate a dark maze using echo pulses.",
+  "scripts": {
+    "start": "npx serve ."
+  },
+  "devDependencies": {},
+  "dependencies": {}
+}
+
